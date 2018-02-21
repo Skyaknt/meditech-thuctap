@@ -274,6 +274,7 @@ Add Brick successful
 ```
 Nếu muốn thay đổi định dạng replica/stripe count, bạn phải thêm replica/stripe count vào add-brick command. 
 
+**Thay thế 1 brick bằng 1 brick khác : http://docs.gluster.org/en/latest/Administrator%20Guide/Managing%20Volumes/**
 ### Cài đặt GlusterFS Client:
 
 Cài đặt gói **glusterfs-client** để hỗ trợ việc mount các GlusterFS filesystems. Chạy tất 
