@@ -35,6 +35,15 @@ như 100, 101, 102..., nhưng entry number ấy gọi là file descriptor.*
 
 ## Translator
 
+- Một translator là một thành phần của glusterFS với chức năng cụ thể: một số chức năng chính trên GlusterFS 
+được thực thi bởi tranlators như sắp xếp lịch đọc/ghi (I/O), xử lý việc ghi dữ liệu bằng các hình thức striping va replication,
+cân bằng tải, chuyển đổi dự phòng các volumes và xử lý disk caching. Một translator kết nối đến một hoặc nhiều 
+volume, thực hiện chức năng của nó và đề nghị thiết lập một kết nối với volume; vì thế 
+các translators có thể gắn lại với nhau thành 1 file system cho nhu cầu nhất định. Một tập hợp các translators đó 
+có thể gọi là một graph.
+
+![Imgur](https://i.imgur.com/nZymQVo.png)
+
 - Translator chuyển đổi requests từ những người dùng thành requests đến bộ phận lưu trữ.
 	
 	- Có 3 hình thức chuyển đổi : one to one, one to many, one to zero ( ví dụ: caching).
