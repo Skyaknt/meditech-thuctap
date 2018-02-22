@@ -225,6 +225,18 @@ Như vậy, hệ thống 6 brick với redundancy level 2 thì có 4 brick lưu 
 - Hệ thống 11 bricks = 8 + 3
 - Hệ thống 12 bricks = 8 + 4
 
+Cấu hình Dispersed GlusterFS : `The syntax is # gluster volume create NEW-VOLNAME [disperse-data COUNT] [redundancy COUNT] [transport tcp | rdma | tcp,rdma] NEW-BRICK...`
+
+Ví dụ với 6 storage servers:
+
+```
+# gluster volume create test-volume disperse-data 4 redundancy 2 transport tcp server1:/exp1/brick server2:/exp2/brick server3:/exp3/brick server4:/exp4/brick server5:/exp5/brick server6:/exp6/brick
+Creation of test-volume has been successful
+Please start the volume to access data.
+```
+
+Tham khảo : https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.1/html-single/administration_guide/index#chap-Red_Hat_Storage_Volumes-Creating_Dispersed_Volumes_1
+
 ## Tham khảo: 
 1. https://access.redhat.com/documentation/en-US/Red_Hat_Storage/2.1/html/Administration_Guide/chap-User_Guide-Storage-pool.html
 2. http://searchstorage.techtarget.com/definition/erasure-coding
