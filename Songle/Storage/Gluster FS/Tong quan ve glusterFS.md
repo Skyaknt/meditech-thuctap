@@ -216,7 +216,7 @@ này cho phép phục hồi lại dữ liệu lưu trên một hoặc nhiều br
 hỏng mà không bị mật dữ liệu được cấu hình bởi *redundancy count*. 
 
 Dispersed Volume yêu cầu ít không gian lưu trữ hơn so với replicated volume. Nó tương đương với một replicated pool với kích 
-thước là 2TB nhưng chỉ yêu cầu 1.5TB thay vì 2TB để lưu 1TB dữ liệu khi cấp độ dự phòng được đặt là 2. Trong một dispersed volume, mỗi brick lưu một vài phần của dữ liệu và **parity** hoặc **redundancy**. Dispersed volume đảm bảo việc *chống thất thoát* dữ liệu dựa trên redundancy level.
+thước là 2TB nhưng chỉ yêu cầu 1.5TB thay vì 2TB để lưu 1TB dữ liệu khi cấp độ dự phòng được đặt là 2. Trong một dispersed volume, mỗi brick lưu một vài phần của dữ liệu và **parity** (*redundancy data*). Dispersed volume đảm bảo việc *chống thất thoát* dữ liệu dựa trên redundancy level.
 
 Việc bảo vệ dữ liệu bằng erasure coding có thể hiểu đơn giản bằng phương trình sau : `n = k + m` . 
 Trong đó, `n` là tổng số brick, `k` số brick lưu dữ liệu , `m` brick dùng để phục hồi dữ liệu.
