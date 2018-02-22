@@ -222,8 +222,8 @@ Việc bảo vệ dữ liệu bằng erasure coding có thể hiểu đơn giả
 Trong đó, `n` là tổng số brick, `k` số brick lưu dữ liệu , `m` brick dùng để phục hồi dữ liệu.
 Như vậy, hệ thống 6 brick với redundancy level 2 thì có 4 brick lưu data, 2 brick lưu parity hoặc redundancy data, có thể phục hồi được 2 brick trong số 4 brick lưu dữ liệu. 
 
-- Hệ thống 11 bricks = 8 + 3
-- Hệ thống 12 bricks = 8 + 4
+- Hệ thống 11 bricks redundancy level 3 = 8 + 3
+- Hệ thống 12 bricks redundancy level 4 = 8 + 4
 
 Cấu hình Dispersed GlusterFS : `The syntax is # gluster volume create NEW-VOLNAME [disperse-data COUNT] [redundancy COUNT] [transport tcp | rdma | tcp,rdma] NEW-BRICK...`
 
@@ -236,6 +236,27 @@ Please start the volume to access data.
 ```
 
 Tham khảo : https://access.redhat.com/documentation/en-us/red_hat_gluster_storage/3.1/html-single/administration_guide/index#chap-Red_Hat_Storage_Volumes-Creating_Dispersed_Volumes_1
+
+### 9. Distributed dispersed GlusterFS Volume 
+
+![Imgur](https://i.imgur.com/fdocrqK.png)
+
+Distributed dispersed volumes hỗ trợ cùng cấu hình của erasure coding giống dispersed volumes. Số lượng bricks trong distributed 
+dispersed volume phải là cấp số nhân của (K+M). Với phiên bản này, các cấu hình sau được hỗ trợ:
+
+- Hệ thống 6 bricks sử dụng redundancy level 2
+- Hệ thống 11 bricks sử dụng redundancy level 3
+- Hệ thống 12 bricks sử dụng redundancy level 4 
+
+Cấu hình Distributed Dispersed GlusterFS : `# gluster volume create NEW-VOLNAME disperse-data COUNT [redundancy COUNT] [transport tcp | rdma | tcp,rdma] NEW-BRICK...`
+
+Ví dụ với 6 storage servers:
+
+```
+# gluster volume create test-volume disperse-data 4 redundancy 2 transport tcp server1:/exp1/brick1 server2:/exp2/brick2 server3:/exp3/brick3 server4:/exp4/brick4 server5:/exp5/brick5 server6:/exp6/brick6 server1:/exp7/brick7 server2:/exp8/brick8 server3:/exp9/brick9 server4:/exp10/brick10 server5:/exp11/brick11 server6:/exp12/brick12
+Creation of test-volume has been successful
+Please start the volume to access data.
+```
 
 ## Tham khảo: 
 1. https://access.redhat.com/documentation/en-US/Red_Hat_Storage/2.1/html/Administration_Guide/chap-User_Guide-Storage-pool.html
