@@ -42,9 +42,9 @@ snapshot sẽ lỗi. Việc này đảm bảo rằng snapshot sẽ ở trạng t
 
 **Câu lệnh :** `gluster snapshot create <snapname> <volname> [no-timestamp] [description <description>] [force]`
 
-	- Người dùng có thể cung cấp snapname và mô tả cho snap, mô tả dưới **1024** kí tự.
-	- Snapshot sẽ được tạo bằng cách thêm timestamp với tên snap do người dùng cung cấp. Người dùng có thể ghi đè 
-	lên đặc tính này bằng việc cung cấp no-timestamp flag.
+- Người dùng có thể cung cấp snapname và mô tả cho snap, mô tả dưới **1024** kí tự.
+- Snapshot sẽ được tạo bằng cách thêm timestamp với tên snap do người dùng cung cấp. Người dùng có thể ghi đè 
+lên đặc tính này bằng việc cung cấp no-timestamp flag.
 	
 - Để có thể tạo được snapshot , volume phải đang ở trạng thái started state và đang hoạt động.
 
@@ -52,8 +52,8 @@ snapshot sẽ lỗi. Việc này đảm bảo rằng snapshot sẽ ở trạng t
 
 **Câu lệnh:** `gluster snapshot clone <clonename> <snapname>`
 
-	- Sau khi lệnh trên thành công, một glusterFS volume mới sẽ được tạo ra từ snapshot. 
-	Snapshot và clone cùng chia sẻ backend disk.
+- Sau khi lệnh trên thành công, một glusterFS volume mới sẽ được tạo ra từ snapshot. 
+Snapshot và clone cùng chia sẻ backend disk.
 	
 -  Để có thể tạo được snapshot , volume phải đang ở trạng thái started state và đang hoạt động.
 
@@ -61,16 +61,16 @@ snapshot sẽ lỗi. Việc này đảm bảo rằng snapshot sẽ ở trạng t
 
 **Câu lệnh:** `gluster snapshot restore <snapname>`
 
-	- Snapshot restore là hoạt động offline do vậy nếu volume đang hoạt động thì chức năng này sẽ không thực hiện được.
-	- Khi một snapshot được restore lại thì nó sẽ không còn tồn tại trong danh sách các snapshots.
+- Snapshot restore là hoạt động offline do vậy nếu volume đang hoạt động thì chức năng này sẽ không thực hiện được.
+- Khi một snapshot được restore lại thì nó sẽ không còn tồn tại trong danh sách các snapshots.
 	
 	
 #### Xóa snaps
 
 **Câu lệnh:** ` gluster snapshot delete (all | <snapname> | volume <volname>)`
 
-	-  Nếu volume name được chỉ rõ thì snapshots của volume đó sẽ bị xóa hết. Nếu keyword `all` được dùng thì tất 
-	cả snapshots trong hệ thống sẽ bị xóa.
+-  Nếu volume name được chỉ rõ thì snapshots của volume đó sẽ bị xóa hết. Nếu keyword `all` được dùng thì tất 
+cả snapshots trong hệ thống sẽ bị xóa.
 	
 	
 #### Liệt kê danh sách các snaps 
@@ -81,42 +81,42 @@ snapshot sẽ lỗi. Việc này đảm bảo rằng snapshot sẽ ở trạng t
 
 **Câu lệnh**: ` gluster snapshot info [(snapname | volume <volname>)]`
 
-	-  Lệnh này gọi ra tên snapshot, snapshot UUID, thời gian snapshot được tạo, số lượng 
-	snapshots được tạo và số lượng snapshots khả dụng cho một volume cụ thể và trạng thái của snapshot.
+-  Lệnh này gọi ra tên snapshot, snapshot UUID, thời gian snapshot được tạo, số lượng 
+snapshots được tạo và số lượng snapshots khả dụng cho một volume cụ thể và trạng thái của snapshot.
 	
 	
 #### Trạng thái của snapshots 
 
 **Câu lệnh**: `gluster snapshot status [(snapname | volume <volname>)]`
 
-	- Thông báo thông tin chi tiết về snapshots như đường dẫn brick, volume group, trạng thái của 
-	snapshot brick, PID của bricks, trạng thái dữ liệu ...
-	- Nếu snapname được mô tả thì thông tin của snapshot sẽ được hiển thị, còn volname được mô tả thì 
-	trạng thái của toàn bộ snapshots của volume đó sẽ được hiển thị. Nếu không có tên của volume hay 
-	snapshot được mô tả thì thông tin tất cả snapshots sẽ được hiển thị.
+- Thông báo thông tin chi tiết về snapshots như đường dẫn brick, volume group, trạng thái của 
+snapshot brick, PID của bricks, trạng thái dữ liệu ...
+- Nếu snapname được mô tả thì thông tin của snapshot sẽ được hiển thị, còn volname được mô tả thì 
+trạng thái của toàn bộ snapshots của volume đó sẽ được hiển thị. Nếu không có tên của volume hay 
+snapshot được mô tả thì thông tin tất cả snapshots sẽ được hiển thị.
 	
 #### Cấu hình các đặc tính của snapshot
 
 **Câu lệnh**: ` snapshot config [volname] ([snap-max-hard-limit \] \[snap-max-soft-limit ]) | ([auto-delete <enable|disable>]) | ([activate-on-create <enable|disable>])`
 
-	- snap-max-soft-limit và auto-delete là những tùy chọn toàn bộ, nó sẽ được đặt trên tất cả các volumes trong 
-	hệ thống và không thể đặt cho một volume riêng rẽ nào cả.
+- snap-max-soft-limit và auto-delete là những tùy chọn toàn bộ, nó sẽ được đặt trên tất cả các volumes trong 
+hệ thống và không thể đặt cho một volume riêng rẽ nào cả.
 	
-	- Khi tính năng auto-delete được kích hoạt, khi đạt đến giới hạn mềm (soft-limit), với mỗi lần tạo snapshot thành công,
-	snapshots cũ nhất sẽ bị xóa.
+- Khi tính năng auto-delete được kích hoạt, khi đạt đến giới hạn mềm (soft-limit), với mỗi lần tạo snapshot thành công,
+snapshots cũ nhất sẽ bị xóa.
 	 
-	- Khi tính năng auto-delete bị tắt, sau khi đạt đến soft-limit, người dùng sẽ nhận được một cảnh báo với mọi snapshot creation thành công.
+- Khi tính năng auto-delete bị tắt, sau khi đạt đến soft-limit, người dùng sẽ nhận được một cảnh báo với mọi snapshot creation thành công.
 	
-	- Khi đạt đến hard-limit, hệ thống không cho phép tạo snapshot nữa. 
+- Khi đạt đến hard-limit, hệ thống không cho phép tạo snapshot nữa. 
 	
-	- Activation-on-create bị vô hiệu hóa theo mặc định, nếu bạn kích hoạt nó, những snapshot sau đó sẽ sẽ được kích hoạt trong 
-	suốt thời gian tạo snapshot.
+- Activation-on-create bị vô hiệu hóa theo mặc định, nếu bạn kích hoạt nó, những snapshot sau đó sẽ sẽ được kích hoạt trong 
+suốt thời gian tạo snapshot.
 	
 ##### Kích hoạt một snapshot
 
 **Câu lệnh:** `gluster snapshot activate <snapname>`
 	
-	-  Theo mặc định, snapshot sẽ không được kích hoạt trong quá trình tạo snapshot.
+-  Theo mặc định, snapshot sẽ không được kích hoạt trong quá trình tạo snapshot.
 	
 ##### Vô hiệu hóa snapshot 
 
