@@ -43,7 +43,7 @@ có khả năng lưu trữ đến hàng nghìn Petabyte và lớn hơn.
 
 - Bạn có thể tạo 9 loại Volume khác nhau trông GlusteFS.
 
-### 1. Distributed ( Dạng phân tán )
+### 1. Distributed GluserFS Volume ( Dạng phân tán )
 
 Với concept này, các files (data) sẽ được phân tán, lưu trữ rời rạc (distributed) trong các bricks khác nhau . 
 Ví dụ, bạn có 100 files: file1, file2, file3…, file100. Thì file1, file2 lưu ở brick1, file3,4lưu ở brick2, etc. 
@@ -206,5 +206,21 @@ gluster volume create test-volume stripe 2 replica 2 transport tcp server1:/exp1
 server3:/exp5 server3:/exp6 server4:/exp7 server4:/exp8
 ```
 
+### 8. Dispered GlusterFS Volume
+
+![Imgur](https://i.imgur.com/vWmRzZM.png)
+
+Dispersed Volumes dựa trên erasure coding (EC). EC là một phương pháp bảo vệ dữ liệu, trong đó dữ liệu được chia 
+thành các mẩu nhỏ, có thể mở rộng và mã hóa với các mẩu *redundant data* và lưu trữ trên nhiều vị trí khác nhau. Việc 
+này cho phép phục hồi lại dữ liệu lưu trên một hoặc nhiều brick trong trường hợp chúng bị hỏng. Số lượng brick có thể 
+hỏng mà không bị mật dữ liệu được cấu hình bởi *redundancy count*. 
+
+Dispersed Volume yêu cầu ít không gian lưu trữ hơn so với replicated volume. Nó tương đương với một replicated pool với kích 
+thước là 2TB nhưng chỉ yêu cầu 1.5TB thay vì 2TB để lưu 1TB dữ liệu khi cấp độ dự phòng được đặt là 2. Trong một dispersed volume, mỗi brick lưu một vài phần của dữ liệu và **parity** hoặc **redundancy**. Dispersed volume đảm bảo việc *chống thất thoát* dữ liệu dựa trên redundancy level.
+
+
+
 ## Tham khảo: 
-https://access.redhat.com/documentation/en-US/Red_Hat_Storage/2.1/html/Administration_Guide/chap-User_Guide-Storage-pool.html
+1. https://access.redhat.com/documentation/en-US/Red_Hat_Storage/2.1/html/Administration_Guide/chap-User_Guide-Storage-pool.html
+2. http://searchstorage.techtarget.com/definition/erasure-coding
+
