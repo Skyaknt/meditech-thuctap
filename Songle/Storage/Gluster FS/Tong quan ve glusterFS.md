@@ -218,7 +218,12 @@ hỏng mà không bị mật dữ liệu được cấu hình bởi *redundancy 
 Dispersed Volume yêu cầu ít không gian lưu trữ hơn so với replicated volume. Nó tương đương với một replicated pool với kích 
 thước là 2TB nhưng chỉ yêu cầu 1.5TB thay vì 2TB để lưu 1TB dữ liệu khi cấp độ dự phòng được đặt là 2. Trong một dispersed volume, mỗi brick lưu một vài phần của dữ liệu và **parity** hoặc **redundancy**. Dispersed volume đảm bảo việc *chống thất thoát* dữ liệu dựa trên redundancy level.
 
+Việc bảo vệ dữ liệu bằng erasure coding có thể hiểu đơn giản bằng phương trình sau : `n = k + m` . 
+Trong đó, `n` là tổng số brick, `k` số brick lưu dữ liệu , `m` brick dùng để phục hồi dữ liệu.
+Như vậy, hệ thống 6 brick với redundancy level 2 thì có 4 brick lưu data, 2 brick lưu parity hoặc redundancy data, có thể phục hồi được 2 brick trong số 4 brick lưu dữ liệu. 
 
+- Hệ thống 11 bricks = 8 + 3
+- Hệ thống 12 bricks = 8 + 4
 
 ## Tham khảo: 
 1. https://access.redhat.com/documentation/en-US/Red_Hat_Storage/2.1/html/Administration_Guide/chap-User_Guide-Storage-pool.html
