@@ -45,7 +45,7 @@ Khi bạn mount một Volume nào đó và sử dụng nó để lưu trữ, th�
 
 ## Các dạng Volume của GlusteFS
 
-- Bạn có thể tạo 9 loại Volume khác nhau trông GlusteFS.
+- Bạn có thể tạo 9 loại Volume khác nhau trong GlusteFS.
 
 ### 1. Distributed GluserFS Volume ( Dạng phân tán )
 
