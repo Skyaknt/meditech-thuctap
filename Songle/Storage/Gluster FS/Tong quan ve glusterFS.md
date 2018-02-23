@@ -8,6 +8,7 @@ GlusterFS có thể linh hoạt kết hợp với các thiết bị lưu trữ v
 
 Chương trình có thể lưu trữ dữ liệu trên các mô hình, thiết bị khác nhau , nó kết nối với tất cả các node cài đặt GlusterFS qua giao thức TCP hoặc RDMA tạo ra một nguồn tài nguyên lưu trữ duy nhất kết hợp tất cả các không gian lưu trữ có sẵn thành một khối lượng lưu trữ duy nhất (distributed mode) hoặc sử dụng tối đa không gian ổ cứng có sẵn trên tất cả các node để nhân bản dữ liệu của bạn (replicated mode).
 
+*SCSI RDMA Protocol (SRP) is a protocol that allows one computer to access SCSI devices attached to another computer via remote direct memory access *
 ### Các thành phần trong hệ thống lưu trữ GlusteFS
 
 - **Node** : các máy chủ vật lý hoặc máy chủ ảo ( Virtual Private Server) được cài đặt GlusterFS.
