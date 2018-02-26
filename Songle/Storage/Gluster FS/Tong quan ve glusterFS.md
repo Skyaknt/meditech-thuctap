@@ -265,4 +265,4 @@ Please start the volume to access data.
 ## Tham khảo: 
 1. https://access.redhat.com/documentation/en-US/Red_Hat_Storage/2.1/html/Administration_Guide/chap-User_Guide-Storage-pool.html
 2. http://searchstorage.techtarget.com/definition/erasure-coding
-
+3. https://1hosting.com.vn/glusterfs-la-gi-cau-hinh-glusterfs-nhu-nao-phan-1/
