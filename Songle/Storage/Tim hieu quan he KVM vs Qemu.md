@@ -12,12 +12,12 @@ chỉ một lần trên phần mềm tại một thời điểm, có nghĩa là 
 nhiên ta vẫn có thể cải thiện hiệu suất QEMU đồng thời cũng thực hiện được chức năng của VM 
 với ba điều kiện sau: 
 
-	1. Một instruction cụ thể có thể được thực thi trực tiếp bởi CPU.
+1. Một instruction cụ thể có thể được thực thi trực tiếp bởi CPU.
 	
-	2. Instruction đó có thể gửi tới CPU mà không bị sửa đổi để phục vụ cho việc thực thi trực tiếp trong chế độ người dùng thường VMX.
+2. Instruction đó có thể gửi tới CPU mà không bị sửa đổi để phục vụ cho việc thực thi trực tiếp trong chế độ người dùng thường VMX.
 	
-	3. Một instruction cụ thể mà không được thực thi một cách trực tiếp có thể được xác định và gửi tới QEMU phục vụ 
-	cho tiến trình giả lập.
+3. Một instruction cụ thể mà không được thực thi một cách trực tiếp có thể được xác định và gửi tới QEMU phục vụ 
+cho tiến trình giả lập.
 	
 - Sự phát triển của KVM dựa trên ý  tưởng đó. Nó cho phép tạo các VM trong khi vẫn tận 
 dụng được hiệu suất tối đa của tài nguyên OSS hiện có với ít sự thay đổi nhất.  
@@ -26,19 +26,19 @@ Các bước thực hiện QEMU/KVM được mô tả trong ảnh dưới.
 
 ![Imgur](https://i.imgur.com/SvPjDHb.png)
 
-	- Đầu tiên, một file có tên `/dev/kvm` được tạo bởi KVM kernel module (bước 0).
+- Đầu tiên, một file có tên `/dev/kvm` được tạo bởi KVM kernel module (bước 0).
 	File đó cho phép QEMU nắm bắt được các yêu cầu đến KVM kernel module để thực hiện 
 	các chức năng giám sát.
 	
-	- Khi QEMU khởi động để thực thi hệ thống máy khách, nó sẽ lặp lại các `ioctl() system call`.
+- Khi QEMU khởi động để thực thi hệ thống máy khách, nó sẽ lặp lại các `ioctl() system call`.
 	
-	- Khi đến thời điểm để khởi chạy guest system, QEMU lại gọi đến `ioctl()` để hướng 
+- Khi đến thời điểm để khởi chạy guest system, QEMU lại gọi đến `ioctl()` để hướng 
 	dẫn cho KVM kernel module khởi động guest system (bước 1).
 	
-	- Đến lượt kernel module, nó thực hiện một truy cập đến VM gọi là `VM entry` (bước 2) và 
+- Đến lượt kernel module, nó thực hiện một truy cập đến VM gọi là `VM entry` (bước 2) và 
 	bắt đầu thực hiện guest system,
 	
-	- Sau đó, khi guest system đã được hướng dẫn để thực thi các instruction, một tiến trình 
+- Sau đó, khi guest system đã được hướng dẫn để thực thi các instruction, một tiến trình 
 	`VM exit` được thực hiện (bước 3) và KVM xác định nguyên nhân cho việc thoát.
 	Nếu sự tham gia của QEMU là cần thiết để thực hiện một tác vụ I/O hoặc các task khác, tác vụ 
 	kiểm soát sẽ được gửi tới QEMU và nó sẽ thực hiện nhiệm vụ đó. Khi việc thực thi hoàn thành, QEMU 
