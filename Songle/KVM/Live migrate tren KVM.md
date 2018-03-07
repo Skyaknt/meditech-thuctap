@@ -24,7 +24,7 @@ có thể đi ra ngoài qua card mạng thật tên kvm.
 - kvm-server1 : máy host cài máy ảo lên và tiến hành migrate từ máy này sang máy khác.
 - kvm-server2 : máy target nhận VM migrate từ kvm-server1
 
-**Chú ý: 2 máy server đều phải tắt tường lửa để các kết nối ra ngoài không bị chặn: `sudo ufw disable`
+**Chú ý: 2 máy server đều phải tắt tường lửa để các kết nối ra ngoài không bị chặn: `sudo ufw disable`**
 
 #### Bước 1: Tạo máy ảo trên kvm server1 :
 
