@@ -465,3 +465,7 @@ total 16
 Hệ thống đã tạo thành công!
 
 
+## Tham khảo:
+
+1. https://www.linuxtechi.com/setup-glusterfs-storage-on-centos-7-rhel-7/
+
