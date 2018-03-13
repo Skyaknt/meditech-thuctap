@@ -86,6 +86,8 @@ iptables -A INPUT -p tcp --dport 49152 -j ACCEPT
 
 `exec /usr/sbin/libvirtd -d -l` 
 
+- `vi /etc/sysconfig/libvirtd` và uncomment dòng `#LIBVIRTD_ARGS="--listen"`
+
 - Khởi động lại dịch vụ trên host:
 
 `service libvirt-bin restart`
