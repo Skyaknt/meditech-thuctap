@@ -33,6 +33,8 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
 ```
 
+Tiếp theo dùng lệnh `init6` để khởi động lại hệ thống.
+
 #### Bước 1: Tạo máy ảo trên kvm server1 :
 
 Ở đây tôi cài máy ảo bằng virt-manager : https://github.com/thaonguyenvan/meditech-thuctap/blob/master/ThaoNV/KVM/install-kvm-CentOS.md
