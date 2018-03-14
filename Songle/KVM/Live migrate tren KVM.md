@@ -144,7 +144,11 @@ root      1597  1468  0 15:38 pts/0    00:00:00 grep --color=auto libvirt
 
 	- Có thông báo: `Migration: [100 %]` là thành công.root@kvm-server1:~# virsh list
 
-	
+- Trường hợp bạn gặp phải lỗi này trên hệ thống kvm của centos7 : 
+
+`error: Unsafe migration: Migration may lead to data corruption if disks use cache != none`
+ thì tắt máy ảo đi và chỉnh sửa lại cấu hình của ổ cứng IDE, vào phần `advance setting` > `performance option` chọn `none` ở mục cache mode, rồi tiến hành khởi động lại máy ảo và migrate bình thường.
+
 - Tiến hành kiểm tra xem máy ảo đã được migrate sang kvm-server2 chưa :
 
 Trên kvm-server1 dùng lệnh `virsh list` kiểm tra, như ta thấy máy ảo trên kvm-server1 đã không còn tồn tại:
