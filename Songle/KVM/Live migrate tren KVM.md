@@ -87,6 +87,11 @@ iptables -A INPUT -p tcp --dport 16509 -j ACCEPT
 iptables -A INPUT -p tcp --dport 49152 -j ACCEPT
 ```
 
+- Nếu bạn sử dụng quyền root để migrate thì sửa file sau để nói cho hệ thống biết:
+
+`vi /etc/libvirt/qemu.conf` 
+bỏ comment `#user = "root" và #group= "root" `
+
 #### Bước 4: Cấu hình cho dịch vụ libvirt với option `-l` ( --listen) lắng nghe các kết nối bằng TCP:
 
 `vi /etc/init/libvirt-bin.conf`
