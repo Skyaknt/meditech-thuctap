@@ -33,6 +33,8 @@ sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
 ```
 
+`setenforce 0`
+
 Tiếp theo dùng lệnh `init6` để khởi động lại hệ thống.
 
 #### Bước 1: Tạo máy ảo trên kvm server1 :
