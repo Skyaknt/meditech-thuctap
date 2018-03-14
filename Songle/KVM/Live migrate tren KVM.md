@@ -26,6 +26,13 @@ có thể đi ra ngoài qua card mạng thật tên kvm.
 
 **Chú ý: 2 máy server đều phải tắt tường lửa để các kết nối ra ngoài không bị chặn: `sudo ufw disable`**
 
+- Trên **Centos7** ta phải tắt hẳn selinux thì mới tiến hành migrate được :
+
+```
+sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
+sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
+```
+
 #### Bước 1: Tạo máy ảo trên kvm server1 :
 
 Ở đây tôi cài máy ảo bằng virt-manager : https://github.com/thaonguyenvan/meditech-thuctap/blob/master/ThaoNV/KVM/install-kvm-CentOS.md
