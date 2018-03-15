@@ -140,6 +140,7 @@ root      1597  1468  0 15:38 pts/0    00:00:00 grep --color=auto libvirt
 	```
 	
 	- Lệnh tạo : `qemu-img create -f qcow2 -o preallocation=metadata centos7.qcow2 9665380352`
+	
 	*centos7.qcow2 : tên file cấu hình của máy ảo; 966538052 : dung lượng máy ảo đúng với trên máy kvm-server1*
 	
 - Tiếp theo, tiến hành live-migrate khi máy ảo vẫn đang chạy:
@@ -179,3 +180,5 @@ Tiến hành sử dụng máy ảo trên kvm-server2 bình thường.
 https://www.codeday.top/2017/01/09/8568.html
 
 http://pineapplesoftware.blogspot.com.tr/2012/11/configuring-unsecure-remote-access-to.html
+
+https://www.server-world.info/en/note?os=CentOS_7&p=kvm&f=8
