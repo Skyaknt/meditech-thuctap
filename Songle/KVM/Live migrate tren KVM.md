@@ -32,9 +32,8 @@ có thể đi ra ngoài qua card mạng thật tên kvm.
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
 ```
-
-`setenforce 0`
-
+Hoặc 
+`setenforce 0`: để thực hiện việc vô hiệu hóa SELinux không cần khởi động lại server.
 Tiếp theo dùng lệnh `init6` để khởi động lại hệ thống.
 
 #### Bước 1: Tạo máy ảo trên kvm server1 :
